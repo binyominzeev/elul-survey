@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "submittedAt": "2026-08-31T11:28:14.389Z",
+    "answers": {
+      "q2": 3,
+      "q1": 3,
+      "q3": 3
+    },
+    "background": {
+      "relationship": "családtag",
+      "relationshipOther": null,
+      "duration": "kevesebb mint 1 éve",
+      "frequency": "havonta néhányszor"
+    },
+    "openAnswers": {
+      "q41": "",
+      "q42": "",
+      "q43": ""
+    }
+  }
+]
