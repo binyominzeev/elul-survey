@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elul Self-Awareness 40 — Külső megfigyelői kérdőív</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+
+  <main>
+    <div id="formScreen">
+      <div class="intro">
+        <p class="eyebrow">Elul Self-Awareness 40 · Külső megfigyelői kérdőív</p>
+        <h1>Mennyire jellemzőek rá ezek az állítások?</h1>
+        <p>Az alábbi 40 állítás egy olyan személy viselkedését írja le, akit ismersz. Értékeld, mennyire jellemző rá — a tényleges tapasztalataid alapján, ne aszerint, hogy milyennek szeretnéd látni, vagy mennyire kedveled. Ha egy állításról nincs elég tapasztalatod, válaszd az N/A opciót.</p>
+        <p>A kitöltés anonim: nem gyűjtünk nevet, e-mail címet vagy más azonosítót, csak a válaszokat és a kitöltés időpontját.</p>
+        <div class="scale-legend">
+          <span><strong>1</strong> — egyáltalán nem jellemző</span>
+          <span><strong>5</strong> — közepesen jellemző</span>
+          <span><strong>10</strong> — rendkívül jellemző</span>
+        </div>
+      </div>
+
+      <form id="surveyForm">
+        <fieldset>
+          <legend>Az állítások</legend>
+          <div id="questionsContainer"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>A kitöltő háttere</legend>
+
+          <div class="open-question">
+            <p>Milyen kapcsolatban állsz ezzel a személlyel?</p>
+            <div class="choice-group" id="relationshipGroup"></div>
+            <input type="text" class="other-input" id="relationshipOtherInput" placeholder="Milyen kapcsolat?" />
+          </div>
+
+          <div class="open-question">
+            <p>Mióta ismered?</p>
+            <div class="choice-group" id="durationGroup"></div>
+          </div>
+
+          <div class="open-question">
+            <p>Milyen gyakran találkozol vele vagy kommunikálsz vele?</p>
+            <div class="choice-group" id="frequencyGroup"></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Három opcionális kérdés</legend>
+          <div id="openQuestionsContainer"></div>
+        </fieldset>
+
+        <div class="submit-row">
+          <p class="status" id="statusMessage"></p>
+          <button type="submit" class="submit" id="submitBtn">Kérdőív elküldése</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="done-screen" id="doneScreen" style="display:none;">
+      <p class="eyebrow">Köszönjük</p>
+      <h1>A válaszaidat rögzítettük.</h1>
+      <p>Anonim módon mentettük el, azonosító adat nélkül. Bezárhatod ezt az oldalt.</p>
+    </div>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

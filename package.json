@@ -1,0 +1,12 @@
+{
+  "name": "elul-self-awareness-40",
+  "version": "1.0.0",
+  "description": "Kattintható kérdőív az Elul Self-Awareness 40 külső megfigyelői változatához, anonim JSON mentéssel.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
