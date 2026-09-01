@@ -62,18 +62,3 @@ const DURATION_OPTIONS = [
 ];
 
 const FREQUENCY_OPTIONS = ["ritkán", "havonta néhányszor", "hetente", "naponta / majdnem naponta"];
-
-const OPEN_QUESTIONS = [
-  {
-    id: "q41",
-    text: "Mi az a tulajdonsága vagy viselkedése, amelyet szerinted saját magán kevésbé vesz észre, mint amennyire mások észreveszik?",
-  },
-  {
-    id: "q42",
-    text: "Mi az a tulajdonsága, amelyet szerinted hajlamos túlbecsülni vagy túl pozitívan látni magában?",
-  },
-  {
-    id: "q43",
-    text: "Mi az a dolog, amit szerinted nagyon jól csinál, de valószínűleg ő maga nem tulajdonít neki elég jelentőséget?",
-  },
-];

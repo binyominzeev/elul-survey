@@ -8,7 +8,6 @@
   };
 
   const questionsContainer = document.getElementById("questionsContainer");
-  const openQuestionsContainer = document.getElementById("openQuestionsContainer");
   const relationshipGroup = document.getElementById("relationshipGroup");
   const durationGroup = document.getElementById("durationGroup");
   const frequencyGroup = document.getElementById("frequencyGroup");
@@ -100,26 +99,6 @@
     state.frequency = val;
   });
 
-  // --- Render optional open questions -------------------------------------
-  OPEN_QUESTIONS.forEach((q) => {
-    const wrap = document.createElement("div");
-    wrap.className = "open-question";
-    wrap.style.marginBottom = "22px";
-
-    const p = document.createElement("p");
-    p.innerHTML = `${q.text} <span class="optional-tag">(opcionális)</span>`;
-
-    const textarea = document.createElement("textarea");
-    textarea.id = q.id;
-    textarea.addEventListener("input", (e) => {
-      state[q.id] = e.target.value;
-    });
-
-    wrap.appendChild(p);
-    wrap.appendChild(textarea);
-    openQuestionsContainer.appendChild(wrap);
-  });
-
   // --- Progress -------------------------------------------------------------
   function updateProgress() {
     const answered = Object.keys(state.answers).length;
@@ -152,11 +131,6 @@
         relationshipOther: state.relationship === "egyéb" ? state.relationshipOther : null,
         duration: state.duration,
         frequency: state.frequency,
-      },
-      openAnswers: {
-        q41: state.q41 || "",
-        q42: state.q42 || "",
-        q43: state.q43 || "",
       },
     };
 

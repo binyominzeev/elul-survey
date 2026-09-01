@@ -62,11 +62,6 @@ app.post("/api/submit", (req, res) => {
       duration: body.background?.duration || null,
       frequency: body.background?.frequency || null,
     },
-    openAnswers: {
-      q41: body.openAnswers?.q41 || "",
-      q42: body.openAnswers?.q42 || "",
-      q43: body.openAnswers?.q43 || "",
-    },
   };
 
   const all = readResponses();
