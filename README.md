@@ -24,7 +24,43 @@ választ. Jegyezd fel valahova biztonságos helyre — ha kihagyod, az
 export végpont egyszerűen ki lesz kapcsolva, és a fájlt SSH-n/SCP-n
 keresztül tudod csak leszedni.
 
-## 3. Tartós futtatás (PM2)
+## 3. Módosítások megjelenítése, újraindítás
+
+Ehhez az alkalmazáshoz nincs buildlépés, ezért az `npm run build` nem
+használható. A Node.js közvetlenül a `server.js` fájlt futtatja, és az
+Express közvetlenül a `public/` mappából szolgálja ki a felületet.
+
+### Kézi indítás esetén
+
+Állítsd le a futó folyamatot a terminálban `Ctrl+C` billentyűkkel, majd
+indítsd újra ugyanazzal a paranccsal:
+
+```bash
+EXPORT_KEY=IDE_A_SAJAT_KULCSOD PORT=3000 npm start
+```
+
+Ha a terminál bezárása után is futtatni szeretnéd, használd inkább a PM2-t
+(lásd a következő fejezetet).
+
+### PM2 használata esetén
+
+```bash
+cd /home/felhasznalo/elul-survey
+pm2 restart elul-survey
+pm2 status
+```
+
+Ha az `EXPORT_KEY` vagy más környezeti változó is módosult, indítsd újra
+az új értékek átadásával:
+
+```bash
+EXPORT_KEY=IDE_A_SAJAT_KULCSOD PORT=3000 pm2 restart elul-survey --update-env
+```
+
+Ezután töltsd újra az oldalt a böngészőben (`Ctrl+R`). Ha a régi felület
+marad látható, próbáld meg a kényszerített frissítést (`Ctrl+Shift+R`).
+
+## 4. Tartós futtatás (PM2)
 
 ```bash
 npm install -g pm2
@@ -33,7 +69,7 @@ pm2 save
 pm2 startup   # a kiírt parancsot futtasd le, hogy reboot után is induljon
 ```
 
-## 4. Nginx reverse proxy + HTTPS
+## 5. Nginx reverse proxy + HTTPS
 
 Ha van már domained/aldomained a szerveren, tegyél elé egy Nginx configot:
 
@@ -56,7 +92,7 @@ Utána Certbot-tal egy paranccsal jön a HTTPS:
 sudo certbot --nginx -d kerdoiv.pelda.hu
 ```
 
-## 5. Válaszok letöltése kitöltés után
+## 6. Válaszok letöltése kitöltés után
 
 Két lehetőség:
 
