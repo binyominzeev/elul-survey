@@ -171,6 +171,11 @@ app.get("/auth/logout", (req, res) => {
   req.session.destroy(() => res.redirect("/"));
 });
 
+// A főoldal ebből tudja meg, mutasson-e admin linket — nem árul el mást a session-ről.
+app.get("/api/session", (req, res) => {
+  res.json({ authenticated: !!req.session.user });
+});
+
 app.get("/admin", requireAuth, (req, res) => {
   const dates = readResponses()
     .map((entry) => entry.submittedAt)
@@ -191,7 +196,7 @@ app.get("/admin", requireAuth, (req, res) => {
 <body>
 <main style="max-width: var(--measure); margin: 2rem auto; padding: 0 1rem;">
 <h1>Kitöltött kérdőívek (${dates.length})</h1>
-<p><a href="/auth/logout">Kijelentkezés</a></p>
+<p><a href="/">Vissza a kérdőívhez</a> · <a href="/auth/logout">Kijelentkezés</a></p>
 <ul>
 ${items}
 </ul>

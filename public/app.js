@@ -157,4 +157,13 @@
       submitBtn.disabled = false;
     }
   });
+
+  fetch("/api/session")
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.authenticated) {
+        document.getElementById("adminLink").style.display = "block";
+      }
+    })
+    .catch(() => {});
 })();
